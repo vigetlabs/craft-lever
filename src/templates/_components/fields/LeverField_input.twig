@@ -1,14 +1,14 @@
 {#
 /**
- * Lever plugin for Craft CMS
+ * Lever plugin for Craft CMS 3.x
  *
- * LeverFieldType HTML
+ * LeverField Field Input
  *
  * @author    Trevor Davis
- * @copyright Copyright (c) 2017 Trevor Davis
- * @link      https://www.viget.com
+ * @copyright Copyright (c) 2018 Trevor Davis
+ * @link      https://www.viget.com/
  * @package   Lever
- * @since     1.0.0
+ * @since     2.0.0
  */
 #}
 
@@ -16,7 +16,7 @@
 
 {% set selections = [] %}
 {% if values %}
-    {% for value in values if value %}
+    {% for value in values if value.leverId is defined %}
         {% set selections = selections | merge([value.leverId]) %}
     {% endfor %}
 {% endif %}
@@ -35,11 +35,11 @@
 
     <div>
         {% include "_includes/forms/checkbox" with {
-            label:     option.leverTitle,
-            id:        (loop.first and id is defined ? id : null),
-            name:      name,
-            value:     optionValue | json_encode,
-            checked:   (optionValue.leverId in selections),
+            label: option.leverTitle,
+            id: (loop.first and id is defined ? id : null),
+            name: name,
+            value: optionValue | json_encode,
+            checked: (optionValue.leverId in selections),
         } only %}
     </div>
 {% endfor %}

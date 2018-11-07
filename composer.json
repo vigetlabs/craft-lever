@@ -1,0 +1,43 @@
+{
+    "name": "viget/craft-lever",
+    "description": "Wrapper to integrate with the Lever API",
+    "type": "craft-plugin",
+    "version": "2.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "lever"
+    ],
+    "support": {
+        "docs": "https://github.com/vigetlabs/craft-lever/blob/master/README.md",
+        "issues": "https://github.com/vigetlabs/craft-lever/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Trevor Davis",
+            "homepage": "https://www.viget.com/"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0-RC1"
+    },
+    "autoload": {
+        "psr-4": {
+          "viget\\lever\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Lever",
+        "handle": "lever",
+        "hasCpSettings": false,
+        "hasCpSection": false,
+        "changelogUrl": "https://raw.githubusercontent.com/vigetlabs/craft-lever/master/CHANGELOG.md",
+        "components": {
+            "leverService": "viget\\lever\\services\\LeverService"
+        },
+        "class": "viget\\lever\\Lever"
+    }
+}

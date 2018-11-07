@@ -53,7 +53,7 @@ class DefaultController extends Controller
                 'errors' => $response
             ]));
         } else {
-            $saveApplicant =Lever::getInstance()->leverService->saveApplicant();
+            $saveApplicant = Lever::getInstance()->leverService->saveApplicant();
 
             if ($saveApplicant) {
                 $this->redirectToPostedUrl();

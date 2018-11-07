@@ -50,7 +50,7 @@ For applicants to apply to jobs in Lever, you will need to build a form to proce
 <form method="post" enctype="multipart/form-data">
 	{{ getCsrfInput() }}
 	<input type="hidden" name="action" value="lever/default/save-applicant">
-  {{ redirectInput('careers/thanks') }}
+	{{ redirectInput('careers/thanks') }}
 	<input type="hidden" name="position" value="1">
 
 	<label for="name">Name</label>

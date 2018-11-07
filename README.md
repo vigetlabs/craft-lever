@@ -2,15 +2,23 @@
 
 [Lever Hire](https://www.lever.co/) is a powerful recruiting platform to track applicants. Now you can integrate with Lever directly from your [Craft](https://craftcms.com/) site.
 
+## Requirements
+
+This plugin requires Craft CMS 3.0.0-beta.23 or later.
+
 ## Installation
 
-To install Lever, follow these steps:
+To install the plugin, follow these instructions.
 
-1. Download & unzip the file and place the `lever` directory into your `craft/plugins` directory
-1. Install plugin in the Craft Control Panel under Settings > Plugins
-1. The plugin folder should be named `lever` for Craft to see it.  GitHub recently started appending `-master` (the branch name) to the name of the folder for zip file downloads.
+1. Open your terminal and go to your Craft project:
 
-Lever works on Craft 2.4.x and Craft 2.5.x.
+        cd /path/to/project
+
+2. Then tell Composer to load the plugin:
+
+        composer require viget/craft-lever
+
+3. In the Control Panel, go to Settings → Plugins and click the “Install” button for Lever.
 
 ## Lever Overview
 
@@ -18,9 +26,8 @@ Instead of sending applicants to apply on your Lever site, you can create a form
 
 ## Configuring Lever
 
-1. Copy `lever/config.php`
-1. Save the file as `lever.php`
-1. Place `lever.php` into your `craft/config` directory.
+1. Copy `src/config.php`
+1. Save the file as `config/lever.php`
 1. Add your Lever values for `apiKey` and `site`
 
 ### Finding Your API Key
@@ -43,7 +50,7 @@ For applicants to apply to jobs in Lever, you will need to build a form to proce
 <form method="post" enctype="multipart/form-data">
 	{{ getCsrfInput() }}
 	<input type="hidden" name="action" value="lever/saveApplicant">
-	<input type="hidden" name="redirect" value="careers/thanks">
+  {{ redirectInput('careers/thanks') }}
 	<input type="hidden" name="position" value="1">
 
 	<label for="name">Name</label>
@@ -57,9 +64,6 @@ For applicants to apply to jobs in Lever, you will need to build a form to proce
 ```
 
 ### Fields
-
-#### `redirect`
-The URL to redirect to after submitting.
 
 #### `position`
 The Lever ID of the position to apply to.

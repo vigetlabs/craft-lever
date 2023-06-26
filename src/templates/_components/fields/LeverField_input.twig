@@ -16,8 +16,10 @@
 
 {% set selections = [] %}
 {% if values %}
-    {% for value in values if value.leverId is defined %}
-        {% set selections = selections | merge([value.leverId]) %}
+    {% for value in values %}
+        {% if value.leverId is defined %}
+            {% set selections = selections | merge([value.leverId]) %}
+        {% endif %}
     {% endfor %}
 {% endif %}
 

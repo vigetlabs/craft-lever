@@ -31,7 +31,7 @@ class DefaultController extends Controller
      *         The actions must be in 'kebab-case'
      * @access protected
      */
-    protected $allowAnonymous = ['save-applicant'];
+    protected array|int|bool $allowAnonymous = ['save-applicant'];
 
     // Public Methods
     // =========================================================================

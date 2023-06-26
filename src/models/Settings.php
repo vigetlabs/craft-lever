@@ -9,7 +9,7 @@ class Settings extends Model
     public $apiKey = '';
     public $site = '';
 
-    public function rules()
+    public function rules(): array
     {
         return [
             [['apiKey', 'site'], 'required'],

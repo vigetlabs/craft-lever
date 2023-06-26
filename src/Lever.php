@@ -33,7 +33,7 @@ use yii\base\Event;
  *
  * @property  LeverServiceService $leverService
  */
-class Lever extends Plugin
+class Lever extends \craft\base\Plugin
 {
     // Static Properties
     // =========================================================================
@@ -42,14 +42,6 @@ class Lever extends Plugin
      * @var Lever
      */
     public static $plugin;
-
-    // Public Properties
-    // =========================================================================
-
-    /**
-     * @var string
-     */
-    public $schemaVersion = '2.0.0';
 
     // Public Methods
     // =========================================================================
@@ -91,7 +83,7 @@ class Lever extends Plugin
     // Protected Methods
     // =========================================================================
 
-    protected function createSettingsModel()
+    protected function createSettingsModel(): ?\craft\base\Model
     {
         return new \viget\lever\models\Settings();
     }
